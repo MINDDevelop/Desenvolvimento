@@ -1,4 +1,4 @@
-
+from datetime import datetime
 import requests
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -170,7 +170,9 @@ def smile_do_dia(token,symbol,data_estudo,spot_price,lista_strikes,vctos = 1,ran
 
 def opcoes_ativos(Token,symbol):
     header = {"Access-Token": Token}
-    
+    data_atual=datetime.today()
+    data_inicio= (datetime.today()- timedelta(days=1))
+    data_fim = data_atual
     ## CHAMADA NA API 
     dados = requests.get('https://api.oplab.com.br/v3/market/options/{}'.format(symbol),headers=header).json()
     columns= ['symbol', 'block_date', 'category', 'contract_size', 
@@ -181,30 +183,22 @@ def opcoes_ativos(Token,symbol):
                     'spot_price', 'trades', 'cnpj', 'lastUpdatedDividendsAt', 'time', 'type', 
                     'last_trade_at', 'strike_eod']
     df=pd.DataFrame(dados,columns=columns)
-    
-    return df
+    df_filtrado=df[['symbol','category','days_to_maturity','strike','close','ask','bid']]
+    dados = requests.get('https://api.oplab.com.br/v3/market/historical/options/{}/{}/{}'.format(symbol, data_inicio.strftime("%Y%m%d%H%M"), data_fim.strftime("%Y%m%d%H%M")),
+                    headers=header).json()
+    df_moneyness=pd.DataFrame(dados)
+    df_moneyness = df_moneyness[['symbol','moneyness','volatility']]
+    df_final = pd.merge(df_filtrado, df_moneyness, on='symbol')
+    return df_final
 
 def Cotacoes(Token,symbol):
     header = {"Access-Token": Token}
     
     ## CHAMADA NA API 
-    dados = requests.get('https://api.oplab.com.br/v3/market/stocks/{}'.format(symbol),headers=header).json()
-    columns = ["symbol", "type", "name", "open", "high", 
-                        "low", "close", "volume", "financial_volume",
-                          "trades", "bid", "ask", "category", "contract_size",
-                            "created_at", "updated_at", "variation", "ewma_1y_max", 
-                            "ewma_1y_min", "ewma_1y_percentile", "ewma_1y_rank", "ewma_6m_max", 
-                            "ewma_6m_min", "ewma_6m_percentile", "ewma_6m_rank", "ewma_current", 
-                            "has_options", "iv_1y_max", "iv_1y_min", "iv_1y_percentile", "iv_1y_rank", 
-                            "iv_6m_max", "iv_6m_min", "iv_6m_percentile", "iv_6m_rank", "iv_current", 
-                            "middle_term_trend", "semi_return_1y", "short_term_trend", "stdv_1y", 
-                            "stdv_5d", "beta_ibov", "due_date", "maturity_type", "parent_symbol", 
-                            "spot_price", "strike", "garch11_1y", "isin", "cnpj", "correl_ibov", 
-                            "m9_m21", "entropy", "oplab_score", "security_category", "polynomials_2", 
-                            "polynomials_3", "sector", "quotation_form", "market_maker", "highest_options_volume_rank",
-                              "days_to_maturity", "mshort_mlong", "quotationForm", "last_trade_at", "dividendType", 
-                              "tradingName", "lastUpdatedDividendsAt", "time", "previous_close"]
-    df=pd.DataFrame(dados,columns=columns)
-    
+    dados = requests.get('https://api.oplab.com.br/v3/market/stocks/{}'.format(symbol),headers=header).json()  
+    if dados.get('spot_price', None)=='':
+        preco=dados.get('spot_price', None)
+    else:
+        preco=dados.get('close',None) 
+    return preco
 
-    return df[['close']]
