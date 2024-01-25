@@ -53,9 +53,11 @@ def implied_volatility(option_price, S, K, T, r, option_type):
     implied_volatility = fsolve(objective_function,x0=0.02)[0]
 
     return implied_volatility*100
+##
 
 ###
 def calcular_IV_linha_ask(linha):
     return (implied_volatility(linha['ask'],linha['Preco_ativo'],linha['strike'],(linha['days_to_maturity']/252),0.1175,linha['category']))
+
 def calcular_IV_linha_bid(linha):
     return (implied_volatility(linha['bid'],linha['Preco_ativo'],linha['strike'],(linha['days_to_maturity']/252),0.1175,linha['category']))

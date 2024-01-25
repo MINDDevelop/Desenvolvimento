@@ -44,7 +44,7 @@ def opcoes_ativos(Token,symbol):
     dados = requests.get('https://api.oplab.com.br/v3/market/historical/options/{}/{}/{}'.format(symbol, data_inicio.strftime("%Y%m%d%H%M"), data_fim.strftime("%Y%m%d%H%M")),
                     headers=header).json()
     df_moneyness=pd.DataFrame(dados)
-    df_moneyness = df_moneyness[['symbol','moneyness','volatility']]
+    df_moneyness = df_moneyness[['symbol','moneyness']]
     df_final = pd.merge(df_filtrado, df_moneyness, on='symbol')
     return df_final
 

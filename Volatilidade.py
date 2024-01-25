@@ -1,15 +1,15 @@
+import Teste as tt 
+import cacluldora_BS as BS 
+from datetime import datetime,timedelta
+import requests
+import pandas as pd
+import pandas as pd
 import matplotlib.pyplot as plt
-# Cria uma lista com os vencimentos
-vencimentos = ["2024-02-16", "2024-03-15", "2024-04-19"]
+import mplfinance as mpf
 
-# Cria uma lista com as porcentagens de strikes
-porcentagens = [38.0, 38.0, 34.0]
-
-# Cria um gráfico de barras
-plt.plot(vencimentos, porcentagens)
-
-# Adiciona um título ao gráfico
-plt.title("Petra - Skew")
-
-# Exibe o gráfico
-plt.show()
+pd.set_option('display.width', 10000)
+email='victor.drone2013@gmail.com'
+senha='899513Vi!'
+Token=tt.get_token(email,senha)
+tabela=tt.opcoes_ativos(Token,'MGLU3')
+tabela['Preco_ativo']=tt.Cotacoes(Token,'MGLU3')

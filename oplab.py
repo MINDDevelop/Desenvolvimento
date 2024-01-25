@@ -11,23 +11,15 @@ pd.set_option('display.width', 10000)
 email='victor.drone2013@gmail.com'
 senha='899513Vi!'
 Token=tt.get_token(email,senha)
-tabela=tt.opcoes_ativos(Token,'PETR4')
-tabela['Preco_ativo']=tt.Cotacoes(Token,'PETR4')
-tabela_filtrado=tabela
-resultados = tabela_filtrado.apply(BS.calcular_IV_linha_ask, axis=1)
-resultados2 = tabela_filtrado.apply(BS.calcular_IV_linha_bid, axis=1)
-tabela_filtrado.loc[:, 'Volatilidade Implicita(ask)'] = resultados
-tabela_filtrado.loc[:, 'Volatilidade Implicita(bid)'] = resultados2
-tabela_filtrado_16=tabela_filtrado.query("category == 'CALL' & days_to_maturity == 16 & volume > 10000 & moneyness =='ATM'")
-tabela_filtrado_36=tabela_filtrado.query("category == 'CALL' & days_to_maturity == 60 & volume > 10000 & moneyness =='ATM'")
-# tabela_filtrado_16[['symbol','Volatilidade Implicita(ask)','Volatilidade Implicita(bid)']].to_csv('Vol_PETR4_16du_PUT.csv',sep=';')
-# tabela_filtrado_36[['symbol','Volatilidade Implicita(ask)','Volatilidade Implicita(bid)']].to_csv('Vol_PETR4_36du_PUT.csv',sep=';')
-print(tabela_filtrado_36)
+Ticker= input("Digite o Ticker desejado: ")
+tabela=tt.opcoes_ativos(Token,Ticker) 
+tabela['Preco_ativo']=tt.Cotacoes(Token,Ticker)
+L_ask=tabela.apply(BS.calcular_IV_linha_ask, axis=1)
+L_bid=tabela.apply(BS.calcular_IV_linha_bid, axis=1)
+tabela.loc[:, 'Volatilidade Implicita(ask)']= L_ask
+tabela.loc[:, 'Volatilidade Implicita(bid)']= L_bid
+vencimentos=tabela['due_date'].unique()
 
-# plt.plot(tabela_filtrado_16['strike'], tabela_filtrado_16['volatility'], label='Volatilidade Implicita 16du', color='blue')
-# plt.plot(tabela_filtrado_36['strike'], tabela_filtrado_36['volatility'], label='Volatilidade Implicita 36du', color='red')
-# plt.xlabel('Strike')
-# plt.ylabel('Volatilidade Implicita')
-# plt.title('Gráfico Comparativo')
-# plt.legend()
-# plt.show()
+for i in vencimentos:
+    tabela_filtrado=tabela.query(rf"category == 'CALL' & due_date == '{i}' & volume > 100 & moneyness =='ATM'")
+    tabela_filtrado.to_csv(rf'{Ticker}_{i}.csv')
