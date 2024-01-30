@@ -13,3 +13,4 @@ senha='899513Vi!'
 Token=tt.get_token(email,senha)
 tabela=tt.opcoes_ativos(Token,'MGLU3')
 tabela['Preco_ativo']=tt.Cotacoes(Token,'MGLU3')
+print(tabela)
