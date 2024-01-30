@@ -8,8 +8,9 @@ from datetime import datetime,timedelta
 import imageio
 import os
 from matplotlib import style
+from workalendar.america import Brazil
 
-style.use('dark_background')
+
 warnings.simplefilter('ignore', np.RankWarning)
 
 
@@ -26,10 +27,19 @@ def get_token(email,senha):
     return r
 
 def opcoes_ativos(Token,symbol):
+    from workalendar.america import Brazil
     header = {"Access-Token": Token}
-    data_atual=datetime.today()
-    data_inicio= (datetime.today()- timedelta(days=1))
-    data_fim = data_atual
+    cal=Brazil()
+    hoje = datetime.now().date()
+    data_atual= datetime.now().date()
+     # Verificar se hoje é um feriado ou fim de semana
+    while not cal.is_working_day(hoje) or hoje.weekday() == 0 or hoje.weekday() >= 5:
+        # Se for feriado, segunda-feira ou fim de semana, subtrair 1 dia
+        hoje -= timedelta(days=1)
+
+    # Agora hoje é um dia útil
+    util_anterior = hoje - timedelta(days=1)
+    
     ## CHAMADA NA API 
     dados = requests.get('https://api.oplab.com.br/v3/market/options/{}'.format(symbol),headers=header).json()
     columns= ['symbol', 'block_date', 'category', 'contract_size', 
@@ -41,11 +51,12 @@ def opcoes_ativos(Token,symbol):
                     'last_trade_at', 'strike_eod']
     df=pd.DataFrame(dados,columns=columns)
     df_filtrado=df[['symbol','category','days_to_maturity','strike','ask','bid','volume','due_date']]
-    dados = requests.get('https://api.oplab.com.br/v3/market/historical/options/{}/{}/{}'.format(symbol, data_inicio.strftime("%Y%m%d%H%M"), data_fim.strftime("%Y%m%d%H%M")),
-                    headers=header).json()
+    dados = requests.get('https://api.oplab.com.br/v3/market/historical/options/{}/{}/{}'.format(symbol, util_anterior.strftime("%Y%m%d%H%M"), data_atual.strftime("%Y%m%d%H%M")),
+                   headers=header).json()
     df_moneyness=pd.DataFrame(dados)
     df_moneyness = df_moneyness[['symbol','moneyness']]
-    df_final = pd.merge(df_filtrado, df_moneyness, on='symbol')
+    df_final = pd.merge(df_filtrado, df_moneyness, how='inner', on='symbol')
+    df_final = df_final.drop_duplicates(subset=['symbol','due_date','category',],keep='first')
     return df_final
 
 def Cotacoes(Token,symbol):
