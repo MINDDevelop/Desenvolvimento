@@ -35,7 +35,7 @@ while True:
     db_cotadas = pd.concat([db_cotadas, novo_registro], ignore_index=True)
     db_cotadas.to_csv(r'C:\Users\vgonçalves\Desktop\Desenvolvimento\Desenvolvimento\Arquivos\Base_de_dados_MM.csv')
     resposta=input("tem mais algum ativo a ser inserido Y/N ")
-    if resposta =='Y':
+    if resposta =='y':
         pass
     else:
         break

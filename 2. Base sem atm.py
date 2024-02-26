@@ -45,7 +45,10 @@ calcular_vols['Max_dif_book']=0.01*calcular_vols['close']
 calcular_vols=calcular_vols.query("(tmoney == 'ATM' and `Dif.Book` >= Max_dif_book) or (tmoney != 'ATM')")
 calcular_vols=calcular_vols.reset_index(drop=True)
 atm_com_book=calcular_vols
+calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)
 calcular_vols['VI_bid']=''
 calcular_vols['VI_ask']=''
+calcular_vols['delta_bid']=''
+calcular_vols['delta_ask']=''
 calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
 atm_com_book.to_excel(rf'{caminho}\Planilha_sem_vol_{Hoje}.xlsx')

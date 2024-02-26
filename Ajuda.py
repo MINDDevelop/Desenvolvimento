@@ -35,14 +35,7 @@
 ###############################################################################################
 #                            CSV das Vol implicitas                                           #  
 ###############################################################################################
-for i in vencimentos:
-    tabela_filtrado=tabela.query(rf"category == 'CALL' & due_date == '{i}' & volume > 10000 & moneyness =='ATM'")
-    if not tabela_filtrado.empty:
-        tabela_filtrado.to_csv(rf'{Ticker}_{i}_CALL.csv')
-for i in vencimentos:
-    tabela_filtrado=tabela.query(rf"category == 'PUT' & due_date == '{i}' & volume > 10000 & moneyness =='ATM'")
-    if not tabela_filtrado.empty:
-        tabela_filtrado.to_csv(rf'{Ticker}_{i}_PUT.csv') 
+
 ###############################################################################################
 #                            Calculo da media e desvio padrao                                 #  
 ###############################################################################################
@@ -58,4 +51,19 @@ for i in vencimentos:
     
 #     df_vols.loc[len(df_vols)] = [i, med_ask_c, med_bid_c,dp_ask_c,dp_bid_c]
 
+import pandas as pd
+import matplotlib.pyplot as plt
 # print(df_vols)
+df=pd.read_csv(r"C:\Users\vgonçalves\Desktop\Desenvolvimento\Desenvolvimento\Arquivos\Base_de_dados_MM.csv")
+df_filtrado = df[df['Ticker'].str.startswith('PETR')]
+df_filtrado['Vencimento'] = pd.to_datetime(df_filtrado['Vencimento'])
+df_filtrado=df_filtrado.sort_values(by='Vencimento').query("tipo == 'CALL'")
+print(df_filtrado)
+plt.plot(df_filtrado['Vencimento'],df_filtrado['VI_ask'],label='VI_ask')
+plt.plot(df_filtrado['Vencimento'],df_filtrado['VI_bid'],label='VI_bid')
+plt.xlabel("Strike")
+plt.ylabel("Vol.Média")
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+plt.title("Curvas de Volatilidade para Diferentes Vencimentos")
+plt.grid(True)
+plt.show()

@@ -38,8 +38,10 @@ def black_scholes_option_price(volatility, S, K, T, r, option_type):
 
     if option_type == 'CALL':
         option_price = S * st.norm.cdf(d1) - K * np.exp(-r * T) * st.norm.cdf(d2)
+        
     elif option_type == 'PUT':
         option_price = K * np.exp(-r * T) * st.norm.cdf(-d2) - S * st.norm.cdf(-d1)
+        
     else:
         raise ValueError("option_type deve ser 'CALL' ou 'PUT'.")
 
@@ -122,3 +124,37 @@ def calcular_IV_new_Bid(linha):
 def calcular_IV_new_ask(linha):
     return (implied_volatility(linha['Ask'],linha['Preco_Ref'],linha['Strike'],(linha['days_to_maturity'])/252,0.1125,linha['tipo']))
 
+def calculo_delta(volatility, S, K, T, r, option_type):
+    """
+    Calcula o preço teórico de uma opção usando a fórmula de Black-Scholes.
+
+    Parâmetros:
+    - volatility: Volatilidade implícita
+    - S: Preço atual da ação
+    - K: Preço de exercício da opção
+    - T: Tempo até o vencimento em anos
+    - r: Taxa de juros livre de risco
+    - option_type: 'call' para opção de compra, 'put' para opção de venda
+
+    Retorna:
+    - O preço teórico da opção
+    """
+    d1 = (np.log(S / K) + (r + 0.5 * volatility ** 2) * T) / (volatility * np.sqrt(T))
+    
+
+    if option_type == 'CALL':
+        delta = st.norm.cdf(d1)
+        
+    elif option_type == 'PUT':
+        delta = st.norm.cdf(d1) - 1
+        
+    else:
+        raise ValueError("option_type deve ser 'CALL' ou 'PUT'.")
+
+    return delta*100
+
+def calcular_delta_Bid(linha):
+    return calculo_delta(linha['VI_bid'], linha['close'], linha['strike'], (linha['days_to_maturity'])/252, 0.1125, linha['category'])
+
+def calcular_delta_Ask(linha):
+    return calculo_delta(linha['VI_ask'], linha['close'], linha['strike'], (linha['days_to_maturity'])/252, 0.1125, linha['category'])

@@ -39,6 +39,10 @@ calcular_vols=calcular_vols.query("tmoney == 'ATM' and `Dif.Book` <= Max_dif_boo
 calcular_vols=calcular_vols.reset_index(drop=True)
 calcular_vols['VI_bid']=calcular_vols.apply(BS.calcular_IV_hist_bid, axis=1)
 calcular_vols['VI_ask']=calcular_vols.apply(BS.calcular_IV_hist_ask, axis=1)
+calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)
+calcular_vols['delta_bid']=calcular_vols.apply(BS.calcular_delta_Bid, axis=1)
+calcular_vols['delta_ask']=calcular_vols.apply(BS.calcular_delta_Ask, axis=1)
 calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
+
 atm_com_book=calcular_vols
 atm_com_book.to_excel(rf'{caminho}\Planilha_com_vol_{Hoje}.xlsx')
