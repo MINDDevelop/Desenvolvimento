@@ -1,0 +1,530 @@
+[
+    {
+        "label": "fsolve",
+        "importPath": "scipy.optimize",
+        "description": "scipy.optimize",
+        "isExtraImport": true,
+        "detail": "scipy.optimize",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "scipy.stats",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scipy.stats",
+        "description": "scipy.stats",
+        "detail": "scipy.stats",
+        "documentation": {}
+    },
+    {
+        "label": "Brazil",
+        "importPath": "workalendar.america",
+        "description": "workalendar.america",
+        "isExtraImport": true,
+        "detail": "workalendar.america",
+        "documentation": {}
+    },
+    {
+        "label": "Brazil",
+        "importPath": "workalendar.america",
+        "description": "workalendar.america",
+        "isExtraImport": true,
+        "detail": "workalendar.america",
+        "documentation": {}
+    },
+    {
+        "label": "Brazil",
+        "importPath": "workalendar.america",
+        "description": "workalendar.america",
+        "isExtraImport": true,
+        "detail": "workalendar.america",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "imageio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "imageio",
+        "description": "imageio",
+        "detail": "imageio",
+        "documentation": {}
+    },
+    {
+        "label": "style",
+        "importPath": "matplotlib",
+        "description": "matplotlib",
+        "isExtraImport": true,
+        "detail": "matplotlib",
+        "documentation": {}
+    },
+    {
+        "label": "Functions",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "Functions",
+        "description": "Functions",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "cacluldora_BS",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "interp1d",
+        "importPath": "scipy.interpolate",
+        "description": "scipy.interpolate",
+        "isExtraImport": true,
+        "detail": "scipy.interpolate",
+        "documentation": {}
+    },
+    {
+        "label": "CubicSpline",
+        "importPath": "scipy.interpolate",
+        "description": "scipy.interpolate",
+        "isExtraImport": true,
+        "detail": "scipy.interpolate",
+        "documentation": {}
+    },
+    {
+        "label": "interp1d",
+        "importPath": "scipy.interpolate",
+        "description": "scipy.interpolate",
+        "isExtraImport": true,
+        "detail": "scipy.interpolate",
+        "documentation": {}
+    },
+    {
+        "label": "mplfinance",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mplfinance",
+        "description": "mplfinance",
+        "detail": "mplfinance",
+        "documentation": {}
+    },
+    {
+        "label": "statistics",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "statistics",
+        "description": "statistics",
+        "detail": "statistics",
+        "documentation": {}
+    },
+    {
+        "label": "arch",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "arch",
+        "description": "arch",
+        "detail": "arch",
+        "documentation": {}
+    },
+    {
+        "label": "scipy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scipy",
+        "description": "scipy",
+        "detail": "scipy",
+        "documentation": {}
+    },
+    {
+        "label": "quantidades_du",
+        "kind": 2,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "peekOfCode": "def quantidades_du(Data1,Data2):\n    cal = Brazil()\n    Data1 = pd.to_datetime(Data1)\n    Data2 = pd.to_datetime(Data2)\n    dias_uteis = cal.get_working_days_delta(Data1, Data2)\n    return(dias_uteis)\ndef black_scholes_option_price(volatility, S, K, T, r, option_type):\n    \"\"\"\n    Calcula o preço teórico de uma opção usando a fórmula de Black-Scholes.\n    Parâmetros:",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "black_scholes_option_price",
+        "kind": 2,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "peekOfCode": "def black_scholes_option_price(volatility, S, K, T, r, option_type):\n    \"\"\"\n    Calcula o preço teórico de uma opção usando a fórmula de Black-Scholes.\n    Parâmetros:\n    - volatility: Volatilidade implícita\n    - S: Preço atual da ação\n    - K: Preço de exercício da opção\n    - T: Tempo até o vencimento em anos\n    - r: Taxa de juros livre de risco\n    - option_type: 'call' para opção de compra, 'put' para opção de venda",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "implied_volatility",
+        "kind": 2,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "peekOfCode": "def implied_volatility(option_price, S, K, T, r, option_type):\n    #option_price\n    \"\"\"\n    Calcula a volatilidade implícita usando a fórmula de Black-Scholes e fsolve.\n    Parâmetros:\n    - option_price: O preço de mercado da opção \n    - S: Preço atual da ação\n    - K: Preço de exercício da opção\n    - T: Tempo até o vencimento em anos\n    - r: Taxa de juros livre de risco",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_IV_linha_ask",
+        "kind": 2,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "peekOfCode": "def calcular_IV_linha_ask(linha):\n    return (implied_volatility(linha['ask'],linha['Preco_ativo'],linha['strike'],(quantidades_du(linha['due_date'],datetime.today().strftime(\"%Y-%m-%d\")))/252,0.1125,linha['category']))\ndef calcular_IV_linha_bid(linha):\n    return (implied_volatility(linha['bid'],linha['Preco_ativo'],linha['strike'],(quantidades_du(linha['due_date'],datetime.today().strftime(\"%Y-%m-%d\")))/252,0.1125,linha['category']))\ndef calcular_IV_nego(linha):\n    return (implied_volatility(linha['price'],linha['spot'],linha['strike'],(quantidades_du(linha['Venc.'],datetime.today().strftime(\"%Y-%m-%d\")))/252,0.1125,linha['Tipo']))",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_IV_linha_bid",
+        "kind": 2,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "peekOfCode": "def calcular_IV_linha_bid(linha):\n    return (implied_volatility(linha['bid'],linha['Preco_ativo'],linha['strike'],(quantidades_du(linha['due_date'],datetime.today().strftime(\"%Y-%m-%d\")))/252,0.1125,linha['category']))\ndef calcular_IV_nego(linha):\n    return (implied_volatility(linha['price'],linha['spot'],linha['strike'],(quantidades_du(linha['Venc.'],datetime.today().strftime(\"%Y-%m-%d\")))/252,0.1125,linha['Tipo']))",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_IV_nego",
+        "kind": 2,
+        "importPath": "cacluldora_BS",
+        "description": "cacluldora_BS",
+        "peekOfCode": "def calcular_IV_nego(linha):\n    return (implied_volatility(linha['price'],linha['spot'],linha['strike'],(quantidades_du(linha['Venc.'],datetime.today().strftime(\"%Y-%m-%d\")))/252,0.1125,linha['Tipo']))",
+        "detail": "cacluldora_BS",
+        "documentation": {}
+    },
+    {
+        "label": "get_token",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def get_token(email,senha):\n    ## BODY PARA REQUISIÇÃO NA API\n    body = {\"email\": email,\"password\": senha}\n    ## CHAMADA NA API\n    r = requests.post('https://api.oplab.com.br/v3/domain/users/authenticate',json=body).json()['access-token']\n    return r\nemail='victor.drone2013@gmail.com'\nsenha='899513Vi!'\nToken=get_token(email,senha)\ndef opcoes_ativos(symbol):",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "opcoes_ativos",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def opcoes_ativos(symbol):\n    from workalendar.america import Brazil\n    header = {\"Access-Token\": Token}\n    cal=Brazil()\n    hoje = datetime.now().date()\n    data_atual= datetime.now().date()\n     # Verificar se hoje é um feriado ou fim de semana\n    while not cal.is_working_day(hoje) or hoje.weekday() == 0 or hoje.weekday() >= 5:\n        # Se for feriado, segunda-feira ou fim de semana, subtrair 1 dia\n        hoje -= timedelta(days=1)",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "Cotacoes",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def Cotacoes(symbol):\n    header = {\"Access-Token\": Token}\n    ## CHAMADA NA API \n    dados = requests.get('https://api.oplab.com.br/v3/market/stocks/{}'.format(symbol),headers=header).json()  \n    return dados\ndef cotacao_historica(symbol,_from,_to,resolution=\"15\"):\n    header = {\"Access-Token\": Token}\n    dados=requests.get(rf'https://api.oplab.com.br/v3/market/historical/{symbol}/{resolution}?from={_from}&to={_to}',\n                       headers=header).json()\n    return dados",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "cotacao_historica",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def cotacao_historica(symbol,_from,_to,resolution=\"15\"):\n    header = {\"Access-Token\": Token}\n    dados=requests.get(rf'https://api.oplab.com.br/v3/market/historical/{symbol}/{resolution}?from={_from}&to={_to}',\n                       headers=header).json()\n    return dados\ndef determinar_tmoney(row):\n    if row['strike'] > row['Preco_ativo']:\n        return 'OTM'\n    else:\n        return 'ITM'",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "determinar_tmoney",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def determinar_tmoney(row):\n    if row['strike'] > row['Preco_ativo']:\n        return 'OTM'\n    else:\n        return 'ITM'\ndef determinar_tmoney2(row):\n    if row['p.strike']<=6:\n        return 'ATM'\n    if row['strike'] > row['Preco_ativo']:\n        return 'OTM'",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "determinar_tmoney2",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def determinar_tmoney2(row):\n    if row['p.strike']<=6:\n        return 'ATM'\n    if row['strike'] > row['Preco_ativo']:\n        return 'OTM'\n    else:\n        return 'ITM'\ndef calcular_peso_proximidade_zero(valor, fator_exponencial=0.1):\n    return np.exp(-fator_exponencial * abs(valor)) if valor != 0 else 1.0\ndef Consultas_opção(symbol):",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_peso_proximidade_zero",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def calcular_peso_proximidade_zero(valor, fator_exponencial=0.1):\n    return np.exp(-fator_exponencial * abs(valor)) if valor != 0 else 1.0\ndef Consultas_opção(symbol):\n    header = {\"Access-Token\": Token}\n    dados = requests.get('https://api.oplab.com.br/v3/market/options/details/{}'.format(symbol),headers=header).json()\n    colunas_desejadas = ['symbol', 'strike', 'type','due_date','spot_price','parent_symbol']\n# Criar um novo dicionário contendo apenas as colunas desejadas\n    novo_dados = {coluna: dados[coluna] for coluna in colunas_desejadas}\n    return novo_dados\ndef ccotacao_determinada(tickers,date):",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "Consultas_opção",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def Consultas_opção(symbol):\n    header = {\"Access-Token\": Token}\n    dados = requests.get('https://api.oplab.com.br/v3/market/options/details/{}'.format(symbol),headers=header).json()\n    colunas_desejadas = ['symbol', 'strike', 'type','due_date','spot_price','parent_symbol']\n# Criar um novo dicionário contendo apenas as colunas desejadas\n    novo_dados = {coluna: dados[coluna] for coluna in colunas_desejadas}\n    return novo_dados\ndef ccotacao_determinada(tickers,date):\n    header = {\"Access-Token\": Token}\n    dados=requests.get(rf'https://api.oplab.com.br/v3/market/historical/instruments?tickers={tickers}&date={date}',",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "ccotacao_determinada",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def ccotacao_determinada(tickers,date):\n    header = {\"Access-Token\": Token}\n    dados=requests.get(rf'https://api.oplab.com.br/v3/market/historical/instruments?tickers={tickers}&date={date}',\n                       headers=header).json()\n    return dados\ndef acertar_data(data):\n    data_usar=data/1000\n    Data_certa = datetime.utcfromtimestamp(data_usar)\n    return Data_certa\ndef cotacoao(Ticker):",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "acertar_data",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def acertar_data(data):\n    data_usar=data/1000\n    Data_certa = datetime.utcfromtimestamp(data_usar)\n    return Data_certa\ndef cotacoao(Ticker):\n    cal=Brazil()\n    hoje = datetime.now().date()\n    data_atual= datetime.now().date()\n    pd.set_option('display.width', 1000)\n    cotacao=cotacao_historica(Ticker,(data_atual-timedelta(1)),data_atual)",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "cotacoao",
+        "kind": 2,
+        "importPath": "Functions",
+        "description": "Functions",
+        "peekOfCode": "def cotacoao(Ticker):\n    cal=Brazil()\n    hoje = datetime.now().date()\n    data_atual= datetime.now().date()\n    pd.set_option('display.width', 1000)\n    cotacao=cotacao_historica(Ticker,(data_atual-timedelta(1)),data_atual)\n    dados=pd.DataFrame(cotacao)\n    dados['spot']=dados['data'].apply(lambda x:x['close'])\n    dados['data']=dados['data'].apply(lambda x:x['time'])\n    dados['data']=dados['data'].apply(acertar_data)",
+        "detail": "Functions",
+        "documentation": {}
+    },
+    {
+        "label": "dados['strike']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "dados['strike'] = dados['ativo_alvo'].apply(lambda x: x['strike'])\ndados['Venc.'] = dados['ativo_alvo'].apply(lambda x: x['due_date'])\ndados['P.A.Alvo'] = dados['ativo_alvo'].apply(lambda x: x['spot_price'])\ndados['Tipo'] = dados['ativo_alvo'].apply(lambda x: x['type'])\ndados['ativo_alvo'] = dados['ativo_alvo'].apply(lambda x: x['parent_symbol'])\ndados.to_csv('Relatiorio.csv')\nrel=pd.read_csv(r'C:\\Users\\vgonçalves\\Desktop\\Desenvolvimento\\Desenvolvimento\\Relatiorio.csv')\nC_hist = pd.DataFrame(columns=['ativo_alvo', 'Hora', 'spot'])\nnovo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "dados['Venc.']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "dados['Venc.'] = dados['ativo_alvo'].apply(lambda x: x['due_date'])\ndados['P.A.Alvo'] = dados['ativo_alvo'].apply(lambda x: x['spot_price'])\ndados['Tipo'] = dados['ativo_alvo'].apply(lambda x: x['type'])\ndados['ativo_alvo'] = dados['ativo_alvo'].apply(lambda x: x['parent_symbol'])\ndados.to_csv('Relatiorio.csv')\nrel=pd.read_csv(r'C:\\Users\\vgonçalves\\Desktop\\Desenvolvimento\\Desenvolvimento\\Relatiorio.csv')\nC_hist = pd.DataFrame(columns=['ativo_alvo', 'Hora', 'spot'])\nnovo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={\n     'Preço': 'price',",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "dados['P.A.Alvo']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "dados['P.A.Alvo'] = dados['ativo_alvo'].apply(lambda x: x['spot_price'])\ndados['Tipo'] = dados['ativo_alvo'].apply(lambda x: x['type'])\ndados['ativo_alvo'] = dados['ativo_alvo'].apply(lambda x: x['parent_symbol'])\ndados.to_csv('Relatiorio.csv')\nrel=pd.read_csv(r'C:\\Users\\vgonçalves\\Desktop\\Desenvolvimento\\Desenvolvimento\\Relatiorio.csv')\nC_hist = pd.DataFrame(columns=['ativo_alvo', 'Hora', 'spot'])\nnovo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={\n     'Preço': 'price',\n     'symbol':'ativo_alvo'})",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "dados['Tipo']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "dados['Tipo'] = dados['ativo_alvo'].apply(lambda x: x['type'])\ndados['ativo_alvo'] = dados['ativo_alvo'].apply(lambda x: x['parent_symbol'])\ndados.to_csv('Relatiorio.csv')\nrel=pd.read_csv(r'C:\\Users\\vgonçalves\\Desktop\\Desenvolvimento\\Desenvolvimento\\Relatiorio.csv')\nC_hist = pd.DataFrame(columns=['ativo_alvo', 'Hora', 'spot'])\nnovo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={\n     'Preço': 'price',\n     'symbol':'ativo_alvo'})\nAcoes=novo_df['ativo_alvo'].unique()",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "dados['ativo_alvo']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "dados['ativo_alvo'] = dados['ativo_alvo'].apply(lambda x: x['parent_symbol'])\ndados.to_csv('Relatiorio.csv')\nrel=pd.read_csv(r'C:\\Users\\vgonçalves\\Desktop\\Desenvolvimento\\Desenvolvimento\\Relatiorio.csv')\nC_hist = pd.DataFrame(columns=['ativo_alvo', 'Hora', 'spot'])\nnovo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={\n     'Preço': 'price',\n     'symbol':'ativo_alvo'})\nAcoes=novo_df['ativo_alvo'].unique()\nfor i in Acoes:",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "C_hist",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "C_hist = pd.DataFrame(columns=['ativo_alvo', 'Hora', 'spot'])\nnovo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={\n     'Preço': 'price',\n     'symbol':'ativo_alvo'})\nAcoes=novo_df['ativo_alvo'].unique()\nfor i in Acoes:\n    novos=pd.DataFrame(tt.cotacoao(f'{i}'))\n    C_hist=pd.concat([novos,C_hist],ignore_index=True)\nC_hist=C_hist.drop(columns=['ativo_alvo'])",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "novo_df",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "novo_df = rel.drop(columns=rel.columns[0])\nnovo_df=novo_df.rename(columns={\n     'Preço': 'price',\n     'symbol':'ativo_alvo'})\nAcoes=novo_df['ativo_alvo'].unique()\nfor i in Acoes:\n    novos=pd.DataFrame(tt.cotacoao(f'{i}'))\n    C_hist=pd.concat([novos,C_hist],ignore_index=True)\nC_hist=C_hist.drop(columns=['ativo_alvo'])\nC_hist=C_hist.rename(columns={",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "novo_df['Hora']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "novo_df['Hora'] = pd.to_datetime(novo_df['Hora'])\nC_hist['Hora'] = pd.to_datetime(C_hist['Hora'])\nnovo_df['Hora']=novo_df['Hora']-timedelta(1) \nnovo_df=novo_df.drop(columns=['Volume','Comprador','Vendedor'])\nmerged_df= pd.merge_asof(novo_df,C_hist,on='Hora',by='ativo_alvo', direction='nearest')\nmerged_df=merged_df.drop(columns=['P.A.Alvo'])\nmerged_df['Vol']=merged_df.apply(BS.calcular_IV_nego, axis=1)\nprint(merged_df)",
+        "detail": "Relatorio",
+        "documentation": {}
+    },
+    {
+        "label": "C_hist['Hora']",
+        "kind": 5,
+        "importPath": "Relatorio",
+        "description": "Relatorio",
+        "peekOfCode": "C_hist['Hora'] = pd.to_datetime(C_hist['Hora'])\nnovo_df['Hora']=novo_df['Hora']-timedelta(1) \nnovo_df=novo_df.drop(columns=['Volume','Comprador','Vendedor'])\nmerged_df= pd.merge_asof(novo_df,C_hist,on='Hora',by='ativo_alvo', direction='nearest')\nmerged_df=merged_df.drop(columns=['P.A.Alvo'])\nmerged_df['Vol']=merged_df.apply(BS.calcular_IV_nego, axis=1)\nprint(merged_df)",
+        "detail": "Relatorio",
+        "documentation": {}
+    }
+]

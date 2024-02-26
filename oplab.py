@@ -1,43 +1,21 @@
-import Teste as tt 
-import cacluldora_BS as BS 
-from datetime import datetime,timedelta
+import openai
 import requests
-import pandas as pd
-import pandas as pd
-import matplotlib.pyplot as plt
-import mplfinance as mpf
-import statistics as st
-import numpy as np
-import arch
-import scipy
-from scipy.interpolate import CubicSpline
-###############################################################################################
-#                            Buscar o Token da API                                            #  
-###############################################################################################
-pd.set_option('display.width', 100000)
-email='victor.drone2013@gmail.com'
-senha='899513Vi!'
-Token=tt.get_token(email,senha)
-###############################################################################################
-#                              selecionar o Ticker                                            #  
-###############################################################################################
+import json
 
-Ticker= input("Digite o Ticker desejado:")
+# Substitua "sua_chave_de_api_aqui" pela sua chave de API da OpenAI,
+# ou configure a chave de API como uma variável de ambiente.
+api_key = "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"
 
-###############################################################################################
-#                            Selecionar as opções ativas                                      #  
-###############################################################################################
+headers = {'Authorization': f'Bearer {api_key}',"Content-Type": "application/json"}
+link = 'https://api.openai.com/v1/chat/completions'
 
-tabela=tt.opcoes_ativos(Token,Ticker)
-###############################################################################################
-#                            Calcular a vol implicita                                         #  
-###############################################################################################
-tabela['Preco_ativo']=tt.Cotacoes(Token,Ticker)
-L_ask=tabela.apply(BS.calcular_IV_linha_ask, axis=1)
-L_bid=tabela.apply(BS.calcular_IV_linha_bid, axis=1)
-tabela.loc[:, 'Volatilidade Implicita(ask)']= L_ask
-tabela.loc[:, 'Volatilidade Implicita(bid)']= L_bid
-vencimentos=tabela['due_date'].unique()
+id_modelo="gpt-3.5-turbo"
 
-print(tabela)
+body_mensagem= {
+    "model": id_modelo,
+    "messages": [{"role":"user","content": 'baseado na minha api key quais modelo de chat gpt na api do python eu posso usar minha api key é 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'}]
+}
+body_mensagem=json.dumps(body_mensagem)
 
+requisicao=requests.post(link,headers=headers,data=body_mensagem)
+print(requisicao.text)
