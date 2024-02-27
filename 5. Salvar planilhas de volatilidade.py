@@ -7,7 +7,7 @@ import os
 from openpyxl import load_workbook
 
 caminho=r'C:\Users\vgonçalves\Desktop\Desenvolvimento\Desenvolvimento\Arquivos'
-
+Hoje=datetime.today().strftime('%Y_%m_%d')
 vols=pd.read_excel(rf'{caminho}\Planilha_com_vol.xlsx')
 vols['in/on']=vols.apply(tt.determinar_tmoney,axis=1)
 vols['VI_ask']=vols['VI_ask']/100
@@ -23,7 +23,7 @@ vols_atm=vols.groupby(['ativo_alvo','due_date','category','in/on'],as_index=Fals
     'VI_ask': 'mean'
     
 },axis=0)
-vols_atm.to_csv(rf'{caminho}\vols_final_mes.csv',sep=';')
+vols_atm.to_excel(rf'{caminho}\Base_de_dados_Volatilidade_{Hoje}.xlsx')
 
 
 # caminho_arquivo_origem = rf'{caminho}\vols_final_mes.xlsx'

@@ -3,7 +3,7 @@ import cacluldora_BS as BS
 from datetime import datetime
 import pandas as pd
 from openpyxl import load_workbook
-caminho=r'C:\Users\vgonçalves\Desktop\Desenvolvimento\Desenvolvimento\Arquivos'
+caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Com vols'
 
 
 pd.set_option('display.width', 10000)
@@ -43,6 +43,5 @@ calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)
 calcular_vols['delta_bid']=calcular_vols.apply(BS.calcular_delta_Bid, axis=1)
 calcular_vols['delta_ask']=calcular_vols.apply(BS.calcular_delta_Ask, axis=1)
 calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
-
 atm_com_book=calcular_vols
-atm_com_book.to_excel(rf'{caminho}\Planilha_com_vol_{Hoje}.xlsx')
+atm_com_book.to_csv(rf'{caminho}\Planilha_com_vol_{Hoje}.csv')

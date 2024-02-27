@@ -7,7 +7,7 @@ import os
 from openpyxl import load_workbook
 
 
-caminho=r'C:\Users\vgonçalves\Desktop\Desenvolvimento\Desenvolvimento\Arquivos'
+caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Sem Vols'
 
 pd.set_option('display.width', 10000)
 Acoes=tt.acoes_options()
