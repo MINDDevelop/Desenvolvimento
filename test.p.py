@@ -1,6 +1,6 @@
 import sys
 import subprocess
-import pandas as pd
+# import pandas as pd
 # from openpyxl import load_workbook
 
 # Lista de pastas onde as instalações do Python estão localizadas
@@ -10,7 +10,7 @@ python_folders = [
 ]
 
 # Biblioteca que você deseja instalar
-library_to_install = 'openpyxl'
+library_to_install = 'workalendar'
 
 for folder in python_folders:
     python_executable = f"{folder}\\python.exe"
