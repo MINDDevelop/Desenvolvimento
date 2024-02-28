@@ -1,16 +1,16 @@
 import sys
 import subprocess
 import pandas as pd
-from openpyxl import load_workbook
+# from openpyxl import load_workbook
 
 # Lista de pastas onde as instalações do Python estão localizadas
 python_folders = [
-    r'C:\Users\vgonçalves\AppData\Local\Programs\Python\Python311',
+    r'C:\Users\victo\AppData\Local\Programs\Python\Python311',
     # Adicione outras pastas conforme necessário
 ]
 
 # Biblioteca que você deseja instalar
-library_to_install = 'webdriver_manager.chrome'
+library_to_install = 'openpyxl'
 
 for folder in python_folders:
     python_executable = f"{folder}\\python.exe"
