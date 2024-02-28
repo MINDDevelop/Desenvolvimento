@@ -3,7 +3,7 @@ import cacluldora_BS as BS
 from datetime import datetime
 import pandas as pd
 from openpyxl import load_workbook
-caminho=r'C:\Users\victo\MIND\Desenvolvimento\Desenvolvimento-1\Arquivos'
+caminho=r'C:\Users\victo\MIND\Desenvolvimento\Arquivos'
 
 
 pd.set_option('display.width', 10000)
