@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 import os
 from openpyxl import load_workbook
-
-
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+import io
 caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Sem Vols'
 
 pd.set_option('display.width', 10000)
@@ -44,11 +44,22 @@ calcular_vols['tmoney'] = calcular_vols.apply(tt.determinar_tmoney3,axis=1)
 calcular_vols['Max_dif_book']=0.01*calcular_vols['close']
 calcular_vols=calcular_vols.query("(tmoney == 'ATM' and `Dif.Book` >= Max_dif_book) or (tmoney != 'ATM')")
 calcular_vols=calcular_vols.reset_index(drop=True)
-atm_com_book=calcular_vols
-calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)
 calcular_vols['VI_bid']=''
 calcular_vols['VI_ask']=''
+calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)
 calcular_vols['delta_bid']=''
 calcular_vols['delta_ask']=''
 calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
-atm_com_book.to_excel(rf'{caminho}\Planilha_sem_vol_{Hoje}.xlsx')
+atm_sem_book=calcular_vols
+atm_sem_book.to_excel(rf'{caminho}\Planilha_sem_vol_{Hoje}.xlsx')
+print('salvando base na azzure')
+atm_sem_book['Data_registro']= datetime.today().strftime('%Y-%m-%d')
+connect_str = 'DefaultEndpointsProtocol=https;AccountName=dbmindvolatilidade;AccountKey=VAdYwii7EfjX0WQpnDov9iHBdZVcYMyfxyZ1vKn8cRVPToI3/Mt45UVEpy76fJqxYST9vB6DZaQz+AStQKDbQQ==;EndpointSuffix=core.windows.net'
+container_name = 'op-sem-vol'
+blob_name = f'Planilha_sem_vol_{Hoje}.csv'
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+output = io.StringIO()
+atm_sem_book.to_csv(output,index=False)
+output.seek(0)
+blob_client.upload_blob(output.getvalue(), overwrite=True)

@@ -3,7 +3,9 @@ import cacluldora_BS as BS
 from datetime import datetime
 import pandas as pd
 from openpyxl import load_workbook
-caminho=r'C:\Users\victo\MIND\Desenvolvimento\Arquivos'
+import io
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Com vols'
 
 
 pd.set_option('display.width', 10000)
@@ -43,5 +45,18 @@ calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)
 calcular_vols['delta_bid']=calcular_vols.apply(BS.calcular_delta_Bid, axis=1)
 calcular_vols['delta_ask']=calcular_vols.apply(BS.calcular_delta_Ask, axis=1)
 calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
+
 atm_com_book=calcular_vols
-atm_com_book.to_csv(rf'{caminho}\Planilha_com_vol_{Hoje}.csv')
+print('Salvando base no excel')
+atm_com_book.to_excel(rf'{caminho}\Planilha_com_vol_{Hoje}.xlsx')
+atm_com_book['Data_registro']= datetime.today().strftime('%Y-%m-%d')
+print('salvando base na azzure')
+connect_str = 'DefaultEndpointsProtocol=https;AccountName=dbmindvolatilidade;AccountKey=VAdYwii7EfjX0WQpnDov9iHBdZVcYMyfxyZ1vKn8cRVPToI3/Mt45UVEpy76fJqxYST9vB6DZaQz+AStQKDbQQ==;EndpointSuffix=core.windows.net'
+container_name = 'vols-atm'
+blob_name = f'Planilha_com_vol_{Hoje}.csv'
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+output = io.StringIO()
+atm_com_book.to_csv(output,index=False)
+output.seek(0)
+blob_client.upload_blob(output.getvalue(), overwrite=True)

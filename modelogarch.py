@@ -1,14 +1,14 @@
-import Teste as tt 
+
 import cacluldora_BS as BS 
 from datetime import datetime,timedelta
 
 import pandas as pd
 import pandas as pd
 import matplotlib.pyplot as plt
-import mplfinance as mpf
+
 import statistics as st
 import numpy as np
-import arch
+
 
 ###############################################################################################
 #                            Buscar o Token da API                                            #  

@@ -5,12 +5,12 @@ import subprocess
 
 # Lista de pastas onde as instalações do Python estão localizadas
 python_folders = [
-    r'C:\Users\victo\AppData\Local\Programs\Python\Python311',
+    r'C:\Users\vgonçalves\AppData\Local\Programs\Python\Python311',
     # Adicione outras pastas conforme necessário
 ]
 
 # Biblioteca que você deseja instalar
-library_to_install = 'workalendar'
+library_to_install = 'azure-storage-blob'
 
 for folder in python_folders:
     python_executable = f"{folder}\\python.exe"
