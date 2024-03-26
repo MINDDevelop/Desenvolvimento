@@ -38,6 +38,7 @@ tabela = tabela[~tabela['symbol'].str.contains('W\d+$', na=False)]
 tabela['Dif.Book']=(tabela['ask']-tabela['bid'])
 tabela=tabela.reset_index(drop=True)
 calcular_vols=tabela
+calcular_vols=calcular_vols.query('close != 0')
 calcular_vols['p.strike'] = ((calcular_vols['close']- calcular_vols['strike'])/calcular_vols['close'])*100
 calcular_vols['p.strike'] = abs(calcular_vols['p.strike'])
 calcular_vols['tmoney'] = calcular_vols.apply(tt.determinar_tmoney3,axis=1)

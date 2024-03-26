@@ -11,18 +11,6 @@ import pandas as pd
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\vgonçalves\Desktop\DESIGN\build\assets\frame0")
-
-def ler_excel(caminho_arquivo):
-    return pd.read_excel(caminho_arquivo, index_col=0)
-
-# Carrega os dados do Excel
-df = ler_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Completa\Base_de_dados_2024_02_29.xlsx")
-valores_coluna = df.iloc[:, 0].unique().tolist()
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
-
 
 window = Tk()
 
@@ -40,28 +28,14 @@ canvas = Canvas(
     relief = "ridge"
 )
 
-canvas.place(x = 0, y = 0)
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
-    148.5,
-    94.0,
-    image=entry_image_1
-)
 entry_1 = ttk.Combobox(
     window,
-    values=valores_coluna,
+    values=['a','b'],
     state="readonly"  # Faz com que apenas os valores da lista possam ser selecionados
 )
 entry_1.place(x=82.0, y=82.0, width=133.0, height=22.0)
 
-entry_image_2 = PhotoImage(
-    file=relative_to_assets("entry_2.png"))
-entry_bg_2 = canvas.create_image(
-    383.5,
-    94.0,
-    image=entry_image_2
-)
+
 entry_2 = Entry(
     bd=0,
     bg="#D9D9D9",
@@ -75,13 +49,7 @@ entry_2.place(
     height=22.0
 )
 
-entry_image_3 = PhotoImage(
-    file=relative_to_assets("entry_3.png"))
-entry_bg_3 = canvas.create_image(
-    618.5,
-    94.0,
-    image=entry_image_3
-)
+
 entry_3 = Entry(
     bd=0,
     bg="#D9D9D9",
@@ -95,13 +63,7 @@ entry_3.place(
     height=22.0
 )
 
-entry_image_4 = PhotoImage(
-    file=relative_to_assets("entry_4.png"))
-entry_bg_4 = canvas.create_image(
-    399.0,
-    361.0,
-    image=entry_image_4
-)
+
 entry_4 = Entry(
     bd=0,
     bg="#D9D9D9",

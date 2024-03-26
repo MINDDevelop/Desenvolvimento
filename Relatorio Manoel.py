@@ -1,15 +1,17 @@
 import pandas as pd
 
-df=pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_04.xlsx",index_col=0)
+# df=pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_08.xlsx",index_col=0)
 
-vols_atm=df.groupby(['ativo_alvo','category'],as_index=False).agg({
-    'VI_bid': 'mean',
-    'VI_ask': 'mean'
+# vols_atm=df.groupby(['ativo_alvo','due_date','category'],as_index=False).agg({
+#     'VI_bid': 'mean',
+#     'VI_ask': 'mean'
     
-},axis=0)
+# },axis=0)
 
 lista_ordenacao = [
 "PETR4",
+"BOVA11",
+"BOVV11",
 "VALE3",
 "ENGI11",
 "BRFS3",
@@ -97,6 +99,22 @@ lista_ordenacao = [
 "DXCO3"
 ]
 
+
+df1=pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_18.xlsx",index_col=0)
+df2= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_19.xlsx",index_col=0)
+df3= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_20.xlsx",index_col=0)
+df4= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_21.xlsx",index_col=0)
+df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
+
+df_union=pd.concat([df1,df2,df3,df4,df5])
+df_union=df_union.reset_index()
+vols_atm=df_union.groupby(['ativo_alvo','due_date','category'],as_index=False).agg({
+    'VI_bid': 'mean',
+    'VI_ask': 'mean'
+    
+},axis=0)
+
 vols_atm_filtrada=vols_atm[vols_atm['ativo_alvo'].isin(lista_ordenacao)]
 vols_atm_filtrada=vols_atm_filtrada.sort_values(by='ativo_alvo')
+vols_atm_filtrada=vols_atm_filtrada.query(f"due_date !='2024-03-15'")
 vols_atm_filtrada.to_excel('Relatorio Semanal.xlsx')

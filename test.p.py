@@ -5,12 +5,12 @@ import subprocess
 
 # Lista de pastas onde as instalações do Python estão localizadas
 python_folders = [
-    r'C:\Users\vgonçalves\AppData\Local\Programs\Python\Python311',
+    r'\\Server\backup usuarios\Base De dados\Python312',
     # Adicione outras pastas conforme necessário
 ]
 
 # Biblioteca que você deseja instalar
-library_to_install = 'azure-storage-blob'
+library_to_install = 'pandas'
 
 for folder in python_folders:
     python_executable = f"{folder}\\python.exe"

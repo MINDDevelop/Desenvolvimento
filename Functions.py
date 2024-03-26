@@ -10,7 +10,7 @@ import os
 from matplotlib import style
 from workalendar.america import Brazil
 import xml.etree.ElementTree as ET
-
+from functools import lru_cache
 
 
 ########################################################################################################
@@ -38,7 +38,7 @@ def opcoes_ativos(symbol): #OK
     header = {"Access-Token": Token}
     dados = requests.get('https://api.oplab.com.br/v3/market/options/{}'.format(symbol),headers=header).json()
     columns= ['symbol', 'category', 
-               'due_date', 
+               'due_date','close' 
                 'strike', 
                 'volume', 'ask', 'bid',
                  'type']
@@ -46,7 +46,9 @@ def opcoes_ativos(symbol): #OK
     
     return df
 ##########################################################################################################
+@lru_cache(maxsize=None)
 def Cotacoes(symbol):  #OK
+    
     """
     symbol= ticker da ação que queremos ver as opções
 
@@ -54,6 +56,7 @@ def Cotacoes(symbol):  #OK
     - pegamos a cotação do ativo. caso o mercado esteja fechado usamos o ultimo preço de fechamento do ativo
 
     """
+    
     header = {"Access-Token": Token}
     
     ## CHAMADA NA API 
@@ -65,7 +68,8 @@ def Cotacoes(symbol):  #OK
     return preco
 ##########################################################################################################
 
-def Cotação_historica(symbol,_from,_to,resolution="1d",df="iso"):
+
+def Cotação_historica(symbol, _from, _to, resolution="0.5", df="iso"):
     """
     symbol= ticker da ação que queremos ver as opções
     _from=a partir de quando vc quer ver o historico
@@ -77,13 +81,16 @@ def Cotação_historica(symbol,_from,_to,resolution="1d",df="iso"):
 
     """
     header = {"Access-Token": Token}
-    dados=requests.get(rf'https://api.oplab.com.br/v3/market/historical/{symbol}/{resolution}?from={_from}&to={_to}&df={df}',
-                       headers=header).json()
-    df=pd.DataFrame(dados)
-    df['time']=df['data'].apply(lambda x: x['time'])
+    response = requests.get(f'https://api.oplab.com.br/v3/market/historical/{symbol}/{resolution}?from={_from}&to={_to}&df={df}',
+                            headers=header)
     
-    df['close']=df['data'].apply(lambda x: x['close'])
-    return df[['symbol','time','close']]
+    if response.status_code == 200:
+        data = response.json()
+        df = pd.DataFrame(data['data'])
+        return df
+    else:
+        print("Erro ao obter os dados:", response.status_code)
+        return None
 ##########################################################################################################
 
 def determinar_tmoney(row):
@@ -213,3 +220,36 @@ def Consultas_opção_tipo(symbol):
     # df=pd.DataFrame((dados),columns=colunas_desejadas)
 # Criar um novo dicionário contendo apenas as colunas desejadas
     return tipo
+@lru_cache(maxsize=None)
+def Consultas_ativoalvo_opcao(symbol):
+    header = {"Access-Token": Token}
+    dados = requests.get('https://api.oplab.com.br/v3/market/options/details/{}'.format(symbol),headers=header).json()
+    symbol2=dados['parent_symbol']
+    return symbol2
+
+def aplicar_ativo(linha):
+    return(Consultas_ativoalvo_opcao(linha['Ticker']))
+
+def Cotação_historica(symbol, _from, _to, resolution="0.5", df="iso"):
+    """
+    symbol= ticker da ação que queremos ver as opções
+    _from=a partir de quando vc quer ver o historico
+    _to= até quando se quer o historico
+    resolution= está configurando para pegar a cotação diária mas é possivel definir outra configuração 
+    padrão de data "2024-02-19T00:00:00"
+    Retorna:
+    - Cotação Historica do ativo
+
+    """
+    header = {"Access-Token": Token}
+    response = requests.get(f'https://api.oplab.com.br/v3/market/historical/{symbol}/{resolution}?from={_from}&to={_to}&df={df}',
+                            headers=header)
+    
+    if response.status_code == 200:
+        data = response.json()
+        df = pd.DataFrame(data['data'])
+        
+        return df['close'].iloc[1]
+    else:
+        print("Erro ao obter os dados:", response.status_code)
+        return None

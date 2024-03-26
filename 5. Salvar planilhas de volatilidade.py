@@ -26,7 +26,7 @@ vols_atm=vols.groupby(['ativo_alvo','due_date','category','in/on'],as_index=Fals
     
 },axis=0)
 caminho_salvar = r'\\Server\backup usuarios\Base De dados\Base de dados Volatilidade'
-vols_atm.to_excel(rf'{caminho_salvar}\Base_de_dados_Volatilidade_{Hoje}.xlsx')
+vols_atm.to_excel(rf'{caminho_salvar}\Base_de_dados_Volatilidade_{Hoje}.xlsx',index=False)
 vols_atm['Data_Registro'] = datetime.today().strftime('%Y-%m-%d')
 connect_str = 'DefaultEndpointsProtocol=https;AccountName=dbmindvolatilidade;AccountKey=VAdYwii7EfjX0WQpnDov9iHBdZVcYMyfxyZ1vKn8cRVPToI3/Mt45UVEpy76fJqxYST9vB6DZaQz+AStQKDbQQ==;EndpointSuffix=core.windows.net'
 container_name = 'base-dados-volatilidade'

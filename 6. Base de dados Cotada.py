@@ -29,9 +29,10 @@ while True:
     # Adicionando o novo registro ao DataFrame usando pd.concat
     novo_registro['Vencimento'] = pd.to_datetime(novo_registro['Vencimento']).dt.date
     novo_registro['days_to_maturity']=novo_registro.apply(BS.calcular_du2,axis=1)
+    novo_registro['ativo_alvo']=novo_registro.apply(tt.aplicar_ativo,axis=1)
     novo_registro['VI_ask']=novo_registro.apply(BS.calcular_IV_new_ask,axis=1)
     novo_registro['VI_bid']=novo_registro.apply(BS.calcular_IV_new_Bid,axis=1)
-    novo_registro= novo_registro[['Data_Hoje','Ticker','tipo','Strike','Bid','Ask','Vencimento','Preco_Ref','days_to_maturity','VI_ask','VI_bid']]
+    novo_registro= novo_registro[['Data_Hoje','Ticker','tipo','Strike','Bid','Ask','Vencimento','Preco_Ref','days_to_maturity','VI_ask','VI_bid','ativo_alvo']]
     db_cotadas = pd.concat([db_cotadas, novo_registro], ignore_index=True)
     db_cotadas.to_csv(r'C:\Users\vgonçalves\Desktop\Desenvolvimento\Desenvolvimento\Arquivos\Base_de_dados_MM.csv')
     resposta=input("tem mais algum ativo a ser inserido Y/N ")
