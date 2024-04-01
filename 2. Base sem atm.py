@@ -54,13 +54,3 @@ calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
 atm_sem_book=calcular_vols
 atm_sem_book.to_excel(rf'{caminho}\Planilha_sem_vol_{Hoje}.xlsx')
 print('salvando base na azzure')
-atm_sem_book['Data_registro']= datetime.today().strftime('%Y-%m-%d')
-connect_str = 'DefaultEndpointsProtocol=https;AccountName=dbmindvolatilidade;AccountKey=VAdYwii7EfjX0WQpnDov9iHBdZVcYMyfxyZ1vKn8cRVPToI3/Mt45UVEpy76fJqxYST9vB6DZaQz+AStQKDbQQ==;EndpointSuffix=core.windows.net'
-container_name = 'op-sem-vol'
-blob_name = f'Planilha_sem_vol_{Hoje}.csv'
-blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
-output = io.StringIO()
-atm_sem_book.to_csv(output,index=False)
-output.seek(0)
-blob_client.upload_blob(output.getvalue(), overwrite=True)

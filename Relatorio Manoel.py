@@ -100,13 +100,13 @@ lista_ordenacao = [
 ]
 
 
-df1=pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_18.xlsx",index_col=0)
-df2= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_19.xlsx",index_col=0)
-df3= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_20.xlsx",index_col=0)
-df4= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_21.xlsx",index_col=0)
-df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
+df1=pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
+df2= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_26.xlsx",index_col=0)
+df3= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_21.xlsx",index_col=0)
+df4= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_20.xlsx",index_col=0)
+# df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
 
-df_union=pd.concat([df1,df2,df3,df4,df5])
+df_union=pd.concat([df1,df2,df3,df4])
 df_union=df_union.reset_index()
 vols_atm=df_union.groupby(['ativo_alvo','due_date','category'],as_index=False).agg({
     'VI_bid': 'mean',

@@ -249,7 +249,7 @@ def Cotação_historica(symbol, _from, _to, resolution="0.5", df="iso"):
         data = response.json()
         df = pd.DataFrame(data['data'])
         
-        return df['close'].iloc[1]
+        return df['close'].iloc[0]
     else:
         print("Erro ao obter os dados:", response.status_code)
         return None
