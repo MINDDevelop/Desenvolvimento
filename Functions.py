@@ -38,7 +38,7 @@ def opcoes_ativos(symbol): #OK
     header = {"Access-Token": Token}
     dados = requests.get('https://api.oplab.com.br/v3/market/options/{}'.format(symbol),headers=header).json()
     columns= ['symbol', 'category', 
-               'due_date','close' 
+               'due_date',
                 'strike', 
                 'volume', 'ask', 'bid',
                  'type']
@@ -46,7 +46,7 @@ def opcoes_ativos(symbol): #OK
     
     return df
 ##########################################################################################################
-@lru_cache(maxsize=None)
+
 def Cotacoes(symbol):  #OK
     
     """
@@ -61,10 +61,7 @@ def Cotacoes(symbol):  #OK
     
     ## CHAMADA NA API 
     dados = requests.get('https://api.oplab.com.br/v3/market/stocks/{}'.format(symbol),headers=header).json()  
-    if dados.get('spot_price', None)=='':
-        preco=dados.get('spot_price', None)
-    else:
-        preco=dados.get('close',None) 
+    preco=dados.get('close',None) 
     return preco
 ##########################################################################################################
 
