@@ -53,4 +53,4 @@ calcular_vols['delta_ask']=''
 calcular_vols['in/on']=calcular_vols.apply(tt.determinar_tmoney,axis=1)
 atm_sem_book=calcular_vols
 atm_sem_book.to_excel(rf'{caminho}\Planilha_sem_vol_{Hoje}.xlsx')
-print('salvando base na azzure')
+
