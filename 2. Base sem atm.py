@@ -44,7 +44,7 @@ calcular_vols['p.strike'] = abs(calcular_vols['p.strike'])
 calcular_vols['tmoney'] = calcular_vols.apply(tt.determinar_tmoney3,axis=1)
 calcular_vols['Max_dif_book']=0.01*calcular_vols['close']
 calcular_vols=calcular_vols.query("(tmoney == 'ATM' and `Dif.Book` >= Max_dif_book) or (tmoney != 'ATM')")
-calcular_vols=calcular_vols.reset_index(drop=True)
+calcular_vols=calcular_vol  s.reset_index(drop=True)
 calcular_vols['VI_bid']=''
 calcular_vols['VI_ask']=''
 calcular_vols['days_to_maturity']=calcular_vols.apply(BS.calcular_du,axis=1)

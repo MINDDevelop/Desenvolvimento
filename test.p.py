@@ -5,7 +5,7 @@ import subprocess
 
 # Lista de pastas onde as instalações do Python estão localizadas
 python_folders = [
-    r'\\Server\backup usuarios\Base De dados\Python312',
+    r'C:\Users\vgonçalves\AppData\Local\Programs\Python\Python313',
     # Adicione outras pastas conforme necessário
 ]
 

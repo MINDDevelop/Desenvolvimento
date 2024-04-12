@@ -250,3 +250,10 @@ def Cotação_historica(symbol, _from, _to, resolution="0.5", df="iso"):
     else:
         print("Erro ao obter os dados:", response.status_code)
         return None
+    
+def DR_acoes():
+    header = {"Access-Token": Token}
+    dados = requests.get('https://api.oplab.com.br/v3/market/stocks',headers=header).json()  
+    df=pd.DataFrame(dados)
+    df=df.sort_values('variation',ascending=False)
+    return df[['symbol','variation']]

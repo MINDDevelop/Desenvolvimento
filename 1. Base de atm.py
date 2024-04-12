@@ -4,7 +4,7 @@ from datetime import datetime
 import pandas as pd
 from openpyxl import load_workbook
 import io
-from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+# from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Com vols'
 
 

@@ -101,10 +101,9 @@ lista_ordenacao = [
 
 
 df2= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_26.xlsx",index_col=0)
+df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
 
-# df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
-
-df_union=df2
+df_union=pd.concat([df2,df5])
 df_union=df_union.reset_index()
 vols_atm=df_union.groupby(['ativo_alvo','due_date','category'],as_index=False).agg({
     'VI_bid': 'mean',
