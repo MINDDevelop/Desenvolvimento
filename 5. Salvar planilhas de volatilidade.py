@@ -6,7 +6,7 @@ import numpy as np
 import os
 from openpyxl import load_workbook
 import io
-from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+
 
 caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Com vols'
 Hoje=datetime.today().strftime('%Y_%m_%d')

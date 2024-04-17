@@ -100,8 +100,8 @@ lista_ordenacao = [
 ]
 
 
-df2= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_26.xlsx",index_col=0)
-df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_03_22.xlsx",index_col=0)
+df2= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_04_09.xlsx",index_col=0)
+df5= pd.read_excel(r"\\Server\backup usuarios\Base De dados\Base de dados Volatilidade\Base_de_dados_Volatilidade_2024_04_10.xlsx",index_col=0)
 
 df_union=pd.concat([df2,df5])
 df_union=df_union.reset_index()
