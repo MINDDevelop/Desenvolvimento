@@ -46,7 +46,24 @@ def opcoes_ativos(symbol): #OK
     
     return df
 ##########################################################################################################
+def opcoes_ativos23(symbol): #OK
+    """
+    symbol= ticker da ação que queremos ver as opções
 
+    Retorna:
+    - todos as opções que temos dessa opção, com seu simbolo, categoria, strike, vencimento, preços do book
+
+    """
+    header = {"Access-Token": Token}
+    dados = requests.get('https://api.oplab.com.br/v3/market/options/{}'.format(symbol),headers=header).json()
+    columns= ['symbol', 'category', 
+               'due_date',
+                'strike', 
+                
+                 'type']
+    df=pd.DataFrame(dados,columns=columns)
+    
+    return df
 def Cotacoes(symbol):  #OK
     
     """
@@ -159,6 +176,12 @@ def acoes_options():
     df=df[df['has_options']==True]
     return df[['symbol','close']]
 
+def acoes_options2():
+    header = {"Access-Token": Token}
+    dados = requests.get('https://api.oplab.com.br/v3/market/stocks',headers=header).json()  
+    df=pd.DataFrame(dados)
+   
+    return df
 
 
 def Consultas_ativo(symbol):

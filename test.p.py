@@ -5,12 +5,12 @@ import subprocess
 
 # Lista de pastas onde as instalações do Python estão localizadas
 python_folders = [
-    r'C:\Users\vgonçalves\AppData\Local\Programs\Python\Python313',
+    r'C:\Users\vgoncalves\AppData\Local\Programs\Python\Python312',
     # Adicione outras pastas conforme necessário
 ]
 
 # Biblioteca que você deseja instalar
-library_to_install = 'pandas'
+library_to_install = 'fitz'
 
 for folder in python_folders:
     python_executable = f"{folder}\\python.exe"

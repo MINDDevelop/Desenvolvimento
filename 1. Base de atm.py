@@ -5,7 +5,7 @@ import pandas as pd
 from openpyxl import load_workbook
 import io
 # from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-caminho=r'\\Server\backup usuarios\Base De dados\Base de dados Com vols'
+caminho=r'\\WIN-RJAPD707RCN\Arquivos_bulk\Base de dados Com vols'
 
 
 pd.set_option('display.width', 10000)
@@ -25,7 +25,7 @@ for ativos in Acoes_op:
         tabela['ativo_alvo']=str(ativos)
         
         df=pd.merge(tabela,price,on='ativo_alvo',how='inner')
-        all_options=pd.concat([all_options,df])
+        all_options=pd.concat([all_options,df]) #'ITSAR107'
     except:
         print('Problema com a ação de ticker:',ativos)
 
@@ -40,8 +40,8 @@ tabela=tabela.reset_index(drop=True)
 tabela['p.strike'] = ((tabela['close']- tabela['strike'])/tabela['close'])*100
 tabela['p.strike'] = abs(tabela['p.strike'])
 tabela['tmoney'] = tabela.apply(tt.determinar_tmoney3,axis=1)
-tabela['Max_dif_book']=0.01*tabela['close']
-tabela=tabela.query("tmoney == 'ATM' and `Dif.Book` <= Max_dif_book and (bid>0 and ask>0) ")
+
+tabela=tabela.query("tmoney == 'ATM' and `Dif.Book` <= 0.2 and (bid>0 and ask>0) ")
 tabela=tabela.reset_index(drop=True)
 tabela['VI_bid']=tabela.apply(BS.calcular_IV_hist_bid, axis=1)
 tabela['VI_ask']=tabela.apply(BS.calcular_IV_hist_ask, axis=1)
@@ -49,7 +49,10 @@ tabela['days_to_maturity']=tabela.apply(BS.calcular_du,axis=1)
 tabela['delta_bid']=tabela.apply(BS.calcular_delta_Bid, axis=1)
 tabela['delta_ask']=tabela.apply(BS.calcular_delta_Ask, axis=1)
 tabela['in/on']=tabela.apply(tt.determinar_tmoney,axis=1)
-atm_com_book=tabela
-print('Salvando base no excel')
-atm_com_book.to_excel(rf'{caminho}\Planilha_com_vol_{Hoje}.xlsx')
+tabela['data']=datetime.today().strftime('%Y-%m-%d')
+atm_com_book=tabela[['data','ativo_alvo','symbol','category','strike','close','due_date',
+                     'days_to_maturity','tmoney','in/on','bid','ask','VI_bid','VI_ask',
+                     'delta_bid','delta_ask']]
+print('Salvando base no csv')
+atm_com_book.to_csv(rf'{caminho}\Planilha_com_vol_{Hoje}.csv',index=False)
 
